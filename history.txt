@@ -1,0 +1,5 @@
+sudo docker image build . -t custom-caddy:2.5.0-alpine
+sudo docker container run --name mycaddy -p 2945:80 -d custom-caddy:2.5.0-alpine
+sudo docker container stop mycaddy
+sudo docker container rm mycaddy
+sudo docker container run --name mycaddy -p 2945:80 -v $PWD/web:/usr/src/pages/ -d custom-caddy:2.5.0-alpine
